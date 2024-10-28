@@ -1,0 +1,4 @@
+﻿SetLocalTime
+RegisterHotKey
+UnregisterHotKey
+WM_HOTKEY

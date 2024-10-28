@@ -1,0 +1,57 @@
+﻿<Window x:Class="SystemTimeModifyTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemTimeModifyTool"
+        mc:Ignorable="d"
+        FontSize="16"
+        Title="时间调整工具"
+        Height="450"
+        Width="800"
+        SourceInitialized="MainWindow_OnSourceInitialized"
+        Closing="MainWindow_OnClosing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+
+
+        </Grid.RowDefinitions>
+
+        <TextBlock VerticalAlignment="Center" Margin="30,0,0,0">
+            网络时间： <TextBlock x:Name="NetworkTime" />
+        </TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Margin="30,0,0,0">
+            系统时间： <TextBlock x:Name="SystemTime" />
+        </TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" Grid.RowSpan="3" VerticalAlignment="Center" Margin="30,0,0,0">
+
+            使用说明:
+            <LineBreak />
+            1:增加时间 <TextBlock x:Name="DurationDisplay"></TextBlock>小时 Ctrl+Q
+            <LineBreak />
+            2:减少时间 <TextBlock Text="{Binding ElementName=DurationDisplay, Mode=OneWay ,Path=Text}"></TextBlock>小时 Ctrl+A
+            <LineBreak />
+            3:校对网络时间 Ctrl+S
+        </TextBlock>
+        <RadioButton Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Margin="30,0,0,0" IsChecked="True"
+                     Click="DurationChange" Loaded="DurationChange">
+            2小时每次
+        </RadioButton>
+        <RadioButton Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="30,0,0,0" Click="DurationChange">4小时每次</RadioButton>
+        <RadioButton Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Margin="30,0,0,0" Click="DurationChange">8小时每次</RadioButton>
+        <RadioButton Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="30,0,0,0" Click="DurationChange">12小时每次</RadioButton>
+        <RadioButton Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Margin="30,0,0,0" Click="DurationChange">24小时每次</RadioButton>
+
+
+    </Grid>
+</Window>
